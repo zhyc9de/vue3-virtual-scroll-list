@@ -177,7 +177,6 @@ export default class Virtual {
     if (overs > this.range.start) {
       return;
     }
-
     // move up start by a buffer length, and make sure its safety
     const start = Math.max(overs - this.param.buffer, 0);
     this.checkRange(start, this.getEndByStart(start));
@@ -189,7 +188,7 @@ export default class Virtual {
     if (overs < this.range.start + this.param.buffer) {
       return;
     }
-
+    console.log('下个区块', overs);
     this.checkRange(overs, this.getEndByStart(overs));
   }
 

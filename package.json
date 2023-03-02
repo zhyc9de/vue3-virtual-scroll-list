@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build:dev": "cross-env mode=development rollup -c rollup.config.js -w",
-    "build": "cross-env mode=production rollup -c rollup.config.js",
-    "prepare": "husky install"
+    "build": "cross-env mode=production rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -32,8 +31,6 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-typescript": "^7.15.0",
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
@@ -46,7 +43,6 @@
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.16.0",
-    "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "rollup": "^2.56.2",

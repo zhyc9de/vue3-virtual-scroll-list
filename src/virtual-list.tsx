@@ -6,6 +6,7 @@ import {
   onUnmounted,
   ref,
   watch,
+  withDirectives,
 } from 'vue';
 import Virtual from './virtual';
 import { Item, Slot } from './item';
@@ -149,7 +150,7 @@ export default defineComponent({
           slotFooterSize: 0,
           keeps: props.keeps,
           estimateSize: props.estimateSize,
-          buffer: Math.round(props.keeps / 3), // recommend for a third of keeps
+          buffer: Math.ceil(props.keeps / 10), // recommend for a third of keeps
           uniqueIds: getUniqueIdFromDataSources(),
         },
         onRangeChanged,
@@ -185,6 +186,7 @@ export default defineComponent({
     const getRenderSlots = () => {
       const slots = [];
       const { start, end } = range.value;
+      console.log('更换内容', start, end);
       const {
         dataSources,
         dataKey,
@@ -205,6 +207,7 @@ export default defineComponent({
           if (typeof uniqueKey === 'string' || typeof uniqueKey === 'number') {
             slots.push(
               <Item
+                key={uniqueKey}
                 index={index}
                 tag={itemTag}
                 event={EVENT_TYPE.ITEM}
